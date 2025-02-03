@@ -21,7 +21,7 @@ def get_mail():
     search = request.form['email']
     conn = mysql.connector.connect(host=credentials.cred["host"], user=credentials.cred["un"], password=credentials.cred["pwd"], database=credentials.cred["db"])
     cursor = conn.cursor()
-    q = "SELECT email from t1 WHERE email='{}'".format(search)
+    q = "SELECT email from {} WHERE email='{}'".format(credentials.cred["table"], search)
     cursor.execute(q)
     mail = cursor.fetchone()
     conn.close()
@@ -45,7 +45,7 @@ def update_details():
         email = request.form['email']
         cursor=db.cursor()
         q = """
-            UPDATE t1
+            UPDATE {}
             SET name='{}', 
             gender='{}' , 
             personality_type='{}', 
@@ -54,12 +54,12 @@ def update_details():
             sleep_schedule='{}',
             phone={}
             WHERE email='{}'
-            """.format(name, gender, personality_type, budget, cleanliness_level, sleep_schedule, phone, email)
+            """.format(credentials.cred["table"], name, gender, personality_type, budget, cleanliness_level, sleep_schedule, phone, email)
         cursor.execute(q)
         db.commit()
 
         # Show roomies
-        cursor.execute("SELECT * FROM t1 WHERE gender='{}' AND email<>'{}'".format(gender,email))
+        cursor.execute("SELECT * FROM {} WHERE gender='{}' AND email<>'{}'".format(credentials.cred["table"],gender,email))
         people = cursor.fetchall()
         db.close()
         return render_template("roomie_disp.html",people=people, message="Record Updated Sucessfully")
@@ -94,14 +94,14 @@ def submit_form():
         # Insert data into the MySQL database
         cursor = db.cursor()
         query = """
-        INSERT INTO t1 (name, gender, personality_type, budget, cleanliness_level, sleep_schedule, phone, email)
+        INSERT INTO %s (name, gender, personality_type, budget, cleanliness_level, sleep_schedule, phone, email)
         VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
         """
-        cursor.execute(query, (name, gender, personality_type, budget, cleanliness_level, sleep_schedule, phone, email))
+        cursor.execute(query, (credentials.cred["table"] ,name, gender, personality_type, budget, cleanliness_level, sleep_schedule, phone, email))
         db.commit()
 
         # Show roomies
-        cursor.execute("SELECT * FROM t1 WHERE gender='{}' AND email<>'{}'".format(gender,email))
+        cursor.execute("SELECT * FROM {} WHERE gender='{}' AND email<>'{}'".format(credentials.cred["table"],gender,email))
         people = cursor.fetchall()
         db.close()
         return render_template("roomie_disp.html",people=people, message="Record Added Sucessfully")
