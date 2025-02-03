@@ -3,6 +3,7 @@ Very good project
 
 #Initial Setup
 1) A functional and running MySql database with its credentials stored in credentials.py and a table named "t1" with the following description:
+
 +-------------------+--------------+------+-----+---------+-------+
 | Field             | Type         | Null | Key | Default | Extra |
 +-------------------+--------------+------+-----+---------+-------+
@@ -16,7 +17,7 @@ Very good project
 | email             | varchar(100) | NO   | PRI | NULL    |       |
 +-------------------+--------------+------+-----+---------+-------+
 
-2) The following python extensions must be installed:
+3) The following python extensions must be installed:
    I)flask
    II)mysql.connector
    
