@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roomie Match - Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 8px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .feedback {
+            text-align: center;
+            margin-top: 20px;
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Roomie Match Registration</h1>
+        <form method="POST" action="/submit_form">
+            <!-- Name -->
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <!-- Gender -->
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <!-- Personality Type -->
+            <label for="personality_type">Personality Type:</label>
+            <select id="personality_type" name="personality_type" required>
+                <option value="Introvert">Introvert</option>
+                <option value="Extrovert">Extrovert</option>
+                <option value="Ambivert">Ambivert</option>
+            </select>
+
+            <!-- Budget -->
+            <label for="budget">Budget (in INR):</label>
+            <input type="number" id="budget" name="budget" required>
+
+            <!-- Cleanliness Level -->
+            <label for="cleanliness_level">Cleanliness Level:</label>
+            <select id="cleanliness_level" name="cleanliness_level" required>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+
+            <!-- Sleep Schedule -->
+            <label for="sleep_schedule">Sleep Schedule:</label>
+            <select id="sleep_schedule" name="sleep_schedule" required>
+                <option value="Early Bird">Early Bird</option>
+                <option value="Night Owl">Night Owl</option>
+                <option value="Flexible">Flexible</option>
+            </select>
+
+            <!-- Phone -->
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <!-- Email -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Feedback message -->
+        {% if message %}
+            <div class="feedback">{{ message }}</div>
+        {% endif %}
+    </div>
+
+</body>
+</html>

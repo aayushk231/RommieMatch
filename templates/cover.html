@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roomie Match</title>
+    <link rel="icon" href="vit_logo.png" type="image/png"> <!-- Add your VIT logo image in the static folder -->
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Helvetica Neue', sans-serif; /* Apple's preferred font */
+            background-color: #f4f4f4; /* Light gray background */
+            color: #333; /* Dark text color for contrast */
+            line-height: 1.6;
+        }
+
+        /* Fullscreen Container */
+        .cover-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: #333;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        /* VIT logo at the top left */
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            height: 50px;
+            width: auto;
+        }
+
+        /* Title Section */
+        .title {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #111; /* Darker text for title */
+            letter-spacing: 0.05em;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 40px;
+            color: #666; /* Lighter text for description */
+            font-weight: 400;
+        }
+
+        /* Button Styling */
+        .register-btn {
+            padding: 15px 30px;
+            background-color: #0071e3; /* Apple-like blue color */
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: 600;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .register-btn:hover {
+            background-color: #005bb5; /* Darker blue on hover */
+            transform: translateY(-2px);
+        }
+
+        /* Background Image Section */
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-image: url('https://via.placeholder.com/1500x900'); /* Placeholder image */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="cover-container">
+        <img class="logo" src="vit_logo.png" alt="VIT Logo"> <!-- Make sure this path is correct -->
+        <h1 class="title">Roomie Match</h1>
+        <p class="description">
+            Find your perfect roommate at VIT! Connect with students who share similar preferences for a comfortable living experience.
+        </p>
+        <!-- Link to index.html -->
+        <a href="/index" class="register-btn">Register Now</a> <!-- Links to the registration page -->
+        <br>
+        <a href="/update" class="register-btn">Update Details</a>
+    </div>
+
+    <!-- Background Image (optional) -->
+    <div class="background-image"></div>
+</body>
+</html>
