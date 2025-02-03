@@ -1,4 +1,4 @@
-//Add Credentials to access MySql databse
+//Add Credentials to access MySql database
 
 cred = {"host":" ", 
         "un":" ", 
